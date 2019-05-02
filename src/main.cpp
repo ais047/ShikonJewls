@@ -1,5 +1,6 @@
 #include "base64.h"
 #include <iostream>
+#include <fstream>
 
 int main() {
   const std::string s =
@@ -13,6 +14,10 @@ int main() {
   std::cout << "encoded: " << std::endl << encoded << std::endl << std::endl;
   std::cout << "decoded: " << std::endl << decoded << std::endl;
 
+  std::ofstream encodefile;
+  encodefile.open ("encoded.txt");
+  encodefile << encoded + "\n";
+  encodefile.close();
 
   // Test all possibilites of fill bytes (none, one =, two ==)
   // References calculated with: https://www.base64encode.org/
