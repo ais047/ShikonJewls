@@ -3,6 +3,6 @@ using namespace std;
 
 int main()
 {
-	cout << "Hello";
+	cout << "Seperating out File into 4 Pieces";
 	return 0;
 }
