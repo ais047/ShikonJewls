@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo Hello This will compress and split files.
+
+FILE="$1"
+numlines=$(wc $FILE | awk '{print $1}')
+divline=$(($numlines/2))
+FILEGZ=$(echo $FILE)
+splitfile=($FILEGZ".split")
+
+mkdir $splitfile
+cp $FILE $splitfile
+cd $splitfile
+gzip -N $FILE | split -l $divline $FILEGZ $FILEGZ".part-"
+rm $FILE".gz"
